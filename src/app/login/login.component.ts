@@ -1,5 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  showme: boolean = false;
+
+  hideComponent() {
+    this.showme = !this.showme;
+  }
   loginForm!: FormGroup;
   submitted = false;
-  constructor(private frombulider: FormBuilder) {}
+  constructor(private frombulider: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.loginForm = this.frombulider.group({
@@ -36,6 +42,9 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
-    console.log(this.loginForm);
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.router.navigate([`dashboard`]);
   }
 }

@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "firstName": "harshd",
+      "LastName": "vardhan",
+      "email": "aman49271@gmail.com"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
